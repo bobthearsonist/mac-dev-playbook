@@ -1,17 +1,7 @@
 mas_installed_apps:
   - { 'id': '1489591003', 'name': 'Email' }
-  - { 'id': '865500966', 'name': 'feedly' }
   # - { 'id': '449830122', 'name': 'Hyperdock' }
-  - { 'id': '405399194', 'name': 'Kindle' }
-  - { 'id': '462058435', 'name': 'Microsoft Excel' }
-  - { 'id': '462062816', 'name': 'Microsoft PowerPoint' }
-  - { 'id': '1295203466', 'name': 'Microsoft Remote Desktop' }
-  - { 'id': '784801555', 'name': 'Microsoft OneNote' }
-  - { 'id': '462054704', 'name': 'Microsoft Word' }
-  - { 'id': '1116599239', 'name': 'NordVPN IKE' }
   - { 'id': '1179623856', 'name': 'Pastebot' }
-  - { 'id': '1291898086', 'name': 'Toggl Track' }
-  - { 'id': '929960914', 'name': 'Timer RH' }
   - { 'id': '497799835', 'name': 'Xcode' }
 
 homebrew_packages_dotnet:
@@ -28,7 +18,6 @@ homebrew_packages_dotnet:
 
 homebrew_packages_general:
   - act  # GitHub Actions workflow runner
-  - awslogs  # AWS CloudWatch Logs command-line interface
   # - emacs  # Extensible, customizable, free/libre text editor
   - cask  # Homebrew extension for installing macOS applications
   - clip  # Command-line interface to the macOS clipboard
@@ -37,21 +26,12 @@ homebrew_packages_general:
   # - exa  # Modern replacement for 'ls' with additional features
   - findutils  # Collection of GNU find, xargs, and locate utilities
   - freetds  # Implementation of the TDS (Tabular DataStream) protocol
-  - fzf  # Command-line fuzzy finder
   - gauge  # Test automation framework
   - gh  # GitHub command-line interface
   - gist  # Command-line utility for working with GitHub Gists
-  - gmp
-  - gnu-getopt  # GNU getopt utility
-  - gobject-introspection  # GObject introspection tools
-  - libtiff  # Library for reading and writing TIFF files
-  - little-cms2  # Color management engine
-  - openvpn
   - swagger-codegen  # Code generator for OpenAPI/Swagger definitions
-  - sqlcmd  # Command-line utility for SQL Server
   - tcptraceroute  # Traceroute implementation using TCP packets useful for debugging ec2 isntances without openening ports
   - telnet  # Telnet client
-  - terraform  # Infrastructure as code tool
 
 homebrew_packages_js:
   - node
@@ -89,8 +69,7 @@ homebrew_installed_packages:
     homebrew_packages_js +
     homebrew_packages_jvm +
     homebrew_packages_python +
-    homebrew_packages_ruby +
-    homebrew_packages_personal_only
+    homebrew_packages_ruby
   }}"
 
 homebrew_taps_brew:
@@ -120,9 +99,7 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 
 homebrew_cask_apps_development:
-  - azure-data-studio  # Cross-platform database tool
   - chromedriver  # WebDriver for Chrome
-  - datagrip # JetBrains DataGrip is a database IDE that provides a unified interface for various databases and SQL.
   - devtoys # DevUtils is a collection of utilities for developers, including tools for generating random data, encoding/decoding, and more.
   - devutils # DevUtils is a collection of utilities for developers, including tools for generating random data, encoding/decoding, and more.
   - docker
@@ -133,9 +110,7 @@ homebrew_cask_apps_development:
   - Kaleidoscope # Kaleidoscope is a file comparison and merge tool that allows you to compare text, images, and folders.
   - mysql-shell # MySQL Shell is a command-line client for MySQL that provides scripting, query, and administration capabilities.
   - powershell # PowerShell is a cross-platform scripting language and automation framework developed by Microsoft.
-  - session-manager-plugin # AWS Systems Manager Session Manager Plugin is a tool that allows you to start and manage interactive sessions with EC2 instances.
   - soapui # SoapUI is an API testing tool that allows you to create, execute, and automate functional, security, and load tests.
-  - sourcetree # Sourcetree is a Git client that provides a visual interface for managing Git repositories.
   - staruml # StarUML is a UML modeling tool that allows you to create, edit, and manage UML diagrams.
   - visual-studio-code # Visual Studio Code is a code editor that provides support for various programming languages and extensions.
   - visual-studio-code-insiders # Visual Studio Code Insiders is a preview version of Visual Studio Code that provides early access to new features and updates.
@@ -157,13 +132,8 @@ homebrew_cask_apps_general:
   - microsoft-auto-update
   - messenger
   - notion
-  - nordvpn
-  - openvpn-connect # OpenVPN Connect is a VPN client that allows you to securely connect to OpenVPN servers.
-  - spark
   - spotify
   # - switchresx # SwitchResX is a utility for Mac that allows you to customize your display settings and create custom resolutions.
-  - viscosity # Viscosity is a VPN client that allows you to securely connect to OpenVPN servers.
-  - webcatalog # WebCatalog is a desktop app that allows you to run web apps like Gmail, WhatsApp, and Facebook Messenger as standalone apps.
 
 homebrew_cask_app_personal_only:
   - adium  # Instant messaging client for Mac

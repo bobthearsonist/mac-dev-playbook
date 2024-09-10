@@ -73,3 +73,9 @@ This project was created by [Jeff Geerling](https://www.jeffgeerling.com/) (orig
 
 [badge-gh-actions]: https://github.com/geerlingguy/mac-dev-playbook/workflows/CI/badge.svg?event=push
 [link-gh-actions]: https://github.com/geerlingguy/mac-dev-playbook/actions?query=workflow%3ACI
+
+## improvements
+
+* create three config.yml files: config.base.yml, config.home.yml, config.work.yml
+* create the Repository directory `mkdir ~/Repository` automatically
+* write a script to install homebrew and ansible and then run the playbook with the base config and either work or home from above
