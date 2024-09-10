@@ -1,0 +1,6 @@
+- name: Checkout repositories from GitHub
+  ansible.builtin.git:
+    repo: "{{ item }}"
+    dest: "/path/to/destination/directory/{{ item | basename | regex_replace('.git$', '') }}"
+    update: no
+  loop: "{{ lookup('file', 'files/repositories-list.txt').splitlines() }}"

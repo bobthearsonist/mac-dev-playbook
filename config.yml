@@ -1,0 +1,234 @@
+mas_installed_apps:
+  - { 'id': '1489591003', 'name': 'Email' }
+  - { 'id': '865500966', 'name': 'feedly' }
+  # - { 'id': '449830122', 'name': 'Hyperdock' }
+  - { 'id': '405399194', 'name': 'Kindle' }
+  - { 'id': '462058435', 'name': 'Microsoft Excel' }
+  - { 'id': '462062816', 'name': 'Microsoft PowerPoint' }
+  - { 'id': '1295203466', 'name': 'Microsoft Remote Desktop' }
+  - { 'id': '784801555', 'name': 'Microsoft OneNote' }
+  - { 'id': '462054704', 'name': 'Microsoft Word' }
+  - { 'id': '1116599239', 'name': 'NordVPN IKE' }
+  - { 'id': '1179623856', 'name': 'Pastebot' }
+  - { 'id': '1291898086', 'name': 'Toggl Track' }
+  - { 'id': '929960914', 'name': 'Timer RH' }
+  - { 'id': '497799835', 'name': 'Xcode' }
+
+homebrew_packages_dotnet:
+  # caused issues with install for some reason
+  - dotnet-sdk
+  - dotnet-sdk3-1-300
+  - dotnet-sdk3-1-400
+  - dotnet-sdk5-0-400
+  - dotnet-sdk6-0-400
+  # issues with accepting license terms
+  # - { name: microsoft/mssql-release/msodbcsql18, install_options: }
+  # - microsoft/mssql-release/mssql-tools
+  # - microsoft/mssql-release/mssql-tools18
+
+homebrew_packages_general:
+  - act  # GitHub Actions workflow runner
+  - awslogs  # AWS CloudWatch Logs command-line interface
+  # - emacs  # Extensible, customizable, free/libre text editor
+  - cask  # Homebrew extension for installing macOS applications
+  - clip  # Command-line interface to the macOS clipboard
+  - datamash  # Command-line tool for data manipulation
+  - espeak  # Text-to-speech synthesis
+  # - exa  # Modern replacement for 'ls' with additional features
+  - findutils  # Collection of GNU find, xargs, and locate utilities
+  - freetds  # Implementation of the TDS (Tabular DataStream) protocol
+  - fzf  # Command-line fuzzy finder
+  - gauge  # Test automation framework
+  - gh  # GitHub command-line interface
+  - gist  # Command-line utility for working with GitHub Gists
+  - gmp
+  - gnu-getopt  # GNU getopt utility
+  - gobject-introspection  # GObject introspection tools
+  - libtiff  # Library for reading and writing TIFF files
+  - little-cms2  # Color management engine
+  - openvpn
+  - swagger-codegen  # Code generator for OpenAPI/Swagger definitions
+  - sqlcmd  # Command-line utility for SQL Server
+  - tcptraceroute  # Traceroute implementation using TCP packets useful for debugging ec2 isntances without openening ports
+  - telnet  # Telnet client
+  - terraform  # Infrastructure as code tool
+
+homebrew_packages_js:
+  - node
+  - nvm
+  - angular-cli
+
+homebrew_packages_jvm:
+  - jenv
+  - gradle
+  - maven
+  - openjdk  # Open-source implementation of the Java Platform
+
+homebrew_packages_python:
+  - docutils # Python documentation utilities
+  - pyenv
+  - python@3.8
+  - python@3.9
+  - python@3.10
+  - python@3.11
+
+homebrew_packages_ruby:
+  - rbenv
+  - rbenv-gemset
+  - ruby-build
+  - ruby@2.7
+  - ruby@3.0
+
+homebrew_packages_personal_only:
+  - homeassistant-cli
+
+homebrew_installed_packages:
+  "{{
+    homebrew_packages_dotnet +
+    homebrew_packages_general +
+    homebrew_packages_js +
+    homebrew_packages_jvm +
+    homebrew_packages_python +
+    homebrew_packages_ruby +
+    homebrew_packages_personal_only
+  }}"
+
+homebrew_taps_brew:
+  - homebrew/bundle
+  - homebrew/cask-fonts
+  - homebrew/cask-versions
+
+homebrew_taps_development:
+  - confluentinc/ccloud
+  - confluentinc/confluent-hub-client
+
+homebrew_taps_dotnet:
+  - isen-ng/dotnet-sdk-versions
+  - microsoft/mssql-release
+
+homebrew_taps_jvm: []
+  # - adoptopenjdk/openjdk # broken
+
+homebrew_taps:
+  "{{
+    homebrew_taps_brew +
+    homebrew_taps_development +
+    homebrew_taps_dotnet +
+    homebrew_taps_jvm
+  }}"
+
+homebrew_cask_appdir: /Applications
+
+homebrew_cask_apps_development:
+  - azure-data-studio  # Cross-platform database tool
+  - chromedriver  # WebDriver for Chrome
+  - datagrip # JetBrains DataGrip is a database IDE that provides a unified interface for various databases and SQL.
+  - devtoys # DevUtils is a collection of utilities for developers, including tools for generating random data, encoding/decoding, and more.
+  - devutils # DevUtils is a collection of utilities for developers, including tools for generating random data, encoding/decoding, and more.
+  - docker
+  - github # GitHub Desktop is a client application that allows you to manage your GitHub repositories and perform Git operations.
+  - Insomnia # Insomnia is a cross-platform REST client that allows you to test and debug RESTful APIs.
+  - IntelliJ-IDEA # IntelliJ IDEA is a Java IDE that provides tools for developing Java, Kotlin, Groovy, and Scala applications.
+  - JetBrains-Toolbox # JetBrains Toolbox is a collection of JetBrains IDEs and tools for developers.
+  - Kaleidoscope # Kaleidoscope is a file comparison and merge tool that allows you to compare text, images, and folders.
+  - mysql-shell # MySQL Shell is a command-line client for MySQL that provides scripting, query, and administration capabilities.
+  - powershell # PowerShell is a cross-platform scripting language and automation framework developed by Microsoft.
+  - session-manager-plugin # AWS Systems Manager Session Manager Plugin is a tool that allows you to start and manage interactive sessions with EC2 instances.
+  - soapui # SoapUI is an API testing tool that allows you to create, execute, and automate functional, security, and load tests.
+  - sourcetree # Sourcetree is a Git client that provides a visual interface for managing Git repositories.
+  - staruml # StarUML is a UML modeling tool that allows you to create, edit, and manage UML diagrams.
+  - visual-studio-code # Visual Studio Code is a code editor that provides support for various programming languages and extensions.
+  - visual-studio-code-insiders # Visual Studio Code Insiders is a preview version of Visual Studio Code that provides early access to new features and updates.
+homebrew_cask_apps_general:
+  - bettertouchtool  # Customizable touchpad and keyboard shortcuts
+  - cleanmymac  # System cleaner and performance optimizer
+  - disk-inventory-x # Disk Inventory X is a disk usage utility for Mac OS X that helps you visualize disk space usage and identify large files and folders.
+  - docker # Docker is a platform for developing, shipping, and running applications in containers.
+  - dockstation # DockStation is a developer-centric application for managing projects based on Docker.
+  - drawio # Draw.io is a free online diagram software for making flowcharts, process diagrams, org charts, UML, ER and network diagrams.
+  - fantastical
+  - firefox
+  # - font-fira-code # Monospaced font with programming ligatures
+  - google-chrome
+  - keeper-password-manager
+  - logitech-options
+  - microsoft-edge
+  - microsoft-teams
+  - microsoft-auto-update
+  - messenger
+  - notion
+  - nordvpn
+  - openvpn-connect # OpenVPN Connect is a VPN client that allows you to securely connect to OpenVPN servers.
+  - spark
+  - spotify
+  # - switchresx # SwitchResX is a utility for Mac that allows you to customize your display settings and create custom resolutions.
+  - viscosity # Viscosity is a VPN client that allows you to securely connect to OpenVPN servers.
+  - webcatalog # WebCatalog is a desktop app that allows you to run web apps like Gmail, WhatsApp, and Facebook Messenger as standalone apps.
+
+homebrew_cask_app_personal_only:
+  - adium  # Instant messaging client for Mac
+  - discord
+  - home-assistant
+  - openra # OpenRA is an open-source implementation of the Red Alert game engine, allowing you to play classic Command & Conquer games on modern systems.
+  - openscad # OpenSCAD is a free software for creating solid 3D CAD models, using a simple scripting language.
+  - transmission
+
+# handled with dotnet-sdk-versions tap
+homebrew_cask_apps_dotnet: []
+  # - dotnet-sdk
+  # - dotnet-sdk3-1-300
+  # - dotnet-sdk3-1-400
+  # - dotnet-sdk5-0-400
+  # - dotnet-sdk6-0-400
+
+homebrew_cask_apps_jvm: []
+  # - adoptopenjdk11 # broken
+  # - adoptopenjdk/openjdk/adoptopenjdk8 # broken
+
+homebrew_cask_apps:
+  "{{
+    homebrew_cask_apps_development +
+    homebrew_cask_apps_general +
+    homebrew_cask_apps_dotnet +
+    homebrew_cask_apps_jvm
+  }}"
+
+homebrew_cask_accept_external_apps: true
+homebrew_use_brewfile: false
+
+mas_email: "{{ lookup('dotenv', 'MAS_EMAIL') }}"
+mas_password: "{{ lookup('dotenv', 'MAS_PASSWORD') }}"
+
+configure_dotfiles: true
+dotfiles_repo_version: main
+dotfiles_repo: https://github.com/bobthearsonist/.dotfiles
+dotfiles_repo_accept_hostkey: true
+dotfiles_repo_local_destination: ~/Repositories/.dotfiles
+dotfiles_files:
+  - .zshrc
+  - .gitconfig
+  - .gitconfig-ukg
+  - .gitconfig-bobthearsonist
+  - .gitignore_global
+  - .rubocop.yml
+
+# TODO ahndle later, not needed when using timemachine backups
+configure_dock: false
+configure_osx: false
+osx_script: "~/.osx --no-restart"
+
+  # TODO finish setting this up too
+composer_packages: []
+#   - name: hirak/prestissimo
+#   - name: drush/drush
+#     version: '^8.1'
+
+gem_packages: []
+#   - name: bundler
+#     state: latest
+
+npm_packages: []
+#   - name: webpack
+
+pip_packages: []
+#   - name: mkdocs

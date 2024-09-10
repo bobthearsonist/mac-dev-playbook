@@ -1,0 +1,14 @@
+- name: Install dotnet-sdk-versions with Homebrew
+  homebrew:
+    name: dotnet-sdk-versions
+    state: latest
+
+- name: Setup dotnet-sdk-versions
+  command:
+    cmd: dotnet sdk install {{ item }}
+  loop:
+    - 3.1.300
+    - 3.1.400
+    - 5.0.400
+    - 6.0.400
+    - latest

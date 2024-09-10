@@ -1,0 +1,9 @@
+#  TODO finish setting this up
+# I had to do these separately because the EULA requires user interaction
+- name: Install packages with license acceptance
+  ansible.builtin.shell:
+    cmd: HOMEBREW_NO_AUTO_UPDATE=1 ACCEPT_EULA=Y brew install {{ item }}
+  loop:
+    - microsoft/mssql-release/msodbcsql18
+    - microsoft/mssql-release/mssql-tools
+    - microsoft/mssql/mssql-tools18

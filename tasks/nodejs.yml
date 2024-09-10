@@ -1,0 +1,32 @@
+# task for configuring nvm versions
+- name: Configure nvm versions
+  shell: |
+    . "{{ ansible_user_dir }}/.nvm/nvm.sh"
+    nvm install 20.11.1
+    nvm use 20.11.1
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+  environment:
+    NVM_DIR: "{{ ansible_user_dir }}/.nvm"
+    NODE_VERSION: 20.11.1
+  tags:
+    - nodejs
+
+- name: Get list of installed Node.js versions
+  shell: ". ~/.nvm/nvm.sh && nvm ls --no-colors | grep -o 'v[0-9]\+\.[0-9]\+\.[0-9]\+'"
+  register: nvm_versions
+  changed_when: false
+
+- name: Install global NPM packages for each Node.js version
+  shell: |
+    . ~/.nvm/nvm.sh
+    nvm use {{ item.version }}
+    npm install -g {{ item.package.name | default(item.package) }}
+  loop:
+    - { version: "{{ item }}", package: "{{ npm_package }}" }
+  loop_control:
+    loop_var: item
+  vars:
+    npm_packages: "{{ nvm_versions.stdout_lines }}"
+  tags:
+    - nodejs

@@ -1,0 +1,32 @@
+- name: Ensure rbenv is installed
+  homebrew:
+    name: rbenv
+    state: present
+  tags: ['ruby']
+
+- name: Ensure ruby-build is installed
+  homebrew:
+    name: ruby-build
+    state: present
+  tags: ['ruby']
+
+- name: Install Ruby versions
+  command:
+    cmd: rbenv install -s {{ item }}
+  loop:
+    - 2.5.4
+    - 2.6.2
+    - 2.6.6
+    - 2.7.1
+    - 2.7.7
+    - 3.1.0
+    - 3.1.3
+    - 3.3.0
+  tags: ['ruby']
+
+- name: Set global Ruby version
+  command:
+    cmd: rbenv global system
+  tags: ['ruby']
+
+  # TODO finish setting up gems for each version

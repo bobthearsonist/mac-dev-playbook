@@ -3,7 +3,7 @@
   hosts: all
 
   vars_files:
-    - default.config.yml
+    - config.yml
 
   pre_tasks:
     - name: Include playbook configuration.
@@ -14,8 +14,8 @@
 
   roles:
     - role: elliotweiser.osx-command-line-tools
-    - role: geerlingguy.mac.homebrew
-      tags: ['homebrew']
+    # - role: geerlingguy.mac.homebrew
+    #   tags: ['homebrew']
     - role: geerlingguy.dotfiles
       when: configure_dotfiles
       tags: ['dotfiles']
@@ -27,13 +27,6 @@
       tags: ['dock']
 
   tasks:
-    - import_tasks: tasks/sudoers.yml
-      when: configure_sudoers
-      tags: ['sudoers']
-
-    - import_tasks: tasks/terminal.yml
-      when: configure_terminal
-      tags: ['terminal']
 
     - import_tasks: tasks/osx.yml
       when: configure_osx
@@ -41,10 +34,6 @@
 
     - import_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
-
-    - import_tasks: tasks/sublime-text.yml
-      when: configure_sublime
-      tags: ['sublime-text']
 
     - name: Run post-provision task files in a block.
       tags: ['post']
@@ -54,3 +43,31 @@
           loop_control:
             loop_var: outer_item
           with_fileglob: "{{ post_provision_tasks | default(omit) }}"
+
+    - name: Install msft brew packages with license acceptance
+      include_tasks: tasks/mssql-tools.yml
+      tags: ['mssql-tools']
+
+    - name: Setup symlinks
+      include_tasks: tasks/symlinks.yml
+      tags: ['symlinks']
+
+    - name: Setup custom scripts
+      include_tasks: tasks/custom-scripts.yml
+      tags: ['scripts']
+
+    - name: Setup dotnet
+      include_tasks: tasks/dotnet.yml
+      tags: ['dotnet']
+
+    - name: Setup ruby
+      include_tasks: tasks/ruby.yml
+      tags: ['ruby']
+
+    - name: Setup Java
+      include_tasks: tasks/java.yml
+      tags: ['java']
+
+    - name: Setup nodejs
+      include_tasks: tasks/nodejs.yml
+      tags: ['nodejs']

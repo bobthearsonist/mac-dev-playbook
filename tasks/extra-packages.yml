@@ -7,14 +7,15 @@
     working_dir: "{{ lookup('env', 'COMPOSER_HOME') | default('~/.composer', true) }}"
   loop: "{{ composer_packages }}"
 
-- name: Install global NPM packages.
-  npm:
-    name: "{{ item.name | default(item) }}"
-    state: "{{ item.state | default('present') }}"
-    version: "{{ item.version | default(omit) }}"
-    global: true
-    executable: "{{ item.executable | default(omit) }}"
-  loop: "{{ npm_packages }}"
+# moved to over complicate it with nvm see ./nodejs.yml
+# - name: Install global NPM packages.
+#   npm:
+#     name: "{{ item.name | default(item) }}"
+#     state: "{{ item.state | default('present') }}"
+#     version: "{{ item.version | default(omit) }}"
+#     global: true
+#     executable: "{{ item.executable | default(omit) }}"
+#   loop: "{{ npm_packages }}"
 
 - name: Install global Pip packages.
   pip:
