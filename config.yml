@@ -74,8 +74,6 @@ homebrew_installed_packages:
 
 homebrew_taps_brew:
   - homebrew/bundle
-  - homebrew/cask-fonts
-  - homebrew/cask-versions
 
 homebrew_taps_development:
   - confluentinc/ccloud
@@ -171,7 +169,7 @@ mas_password: "{{ lookup('dotenv', 'MAS_PASSWORD') }}"
 
 configure_dotfiles: true
 dotfiles_repo_version: main
-dotfiles_repo: https://github.com/bobthearsonist/.dotfiles
+dotfiles_repo: "https://<PAT>@github.com/bobthearsonist/.dotfiles.git"
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Repositories/.dotfiles
 dotfiles_files:
