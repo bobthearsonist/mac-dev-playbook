@@ -53,11 +53,10 @@ homebrew_packages_python:
   - python@3.11
 
 homebrew_packages_ruby:
+  # rbenv is used to install the versions
   - rbenv
   - rbenv-gemset
   - ruby-build
-  # - ruby@2.7 no longer available via brew
-  - ruby@3.0
 
 homebrew_packages_personal_only:
   - homeassistant-cli
