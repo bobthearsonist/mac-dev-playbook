@@ -56,7 +56,7 @@ homebrew_packages_ruby:
   - rbenv
   - rbenv-gemset
   - ruby-build
-  - ruby@2.7
+  # - ruby@2.7 no longer available via brew
   - ruby@3.0
 
 homebrew_packages_personal_only:
