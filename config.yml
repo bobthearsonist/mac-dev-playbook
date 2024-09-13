@@ -111,7 +111,7 @@ homebrew_cask_apps_development:
   - soapui # SoapUI is an API testing tool that allows you to create, execute, and automate functional, security, and load tests.
   - staruml # StarUML is a UML modeling tool that allows you to create, edit, and manage UML diagrams.
   - visual-studio-code # Visual Studio Code is a code editor that provides support for various programming languages and extensions.
-  - visual-studio-code-insiders # Visual Studio Code Insiders is a preview version of Visual Studio Code that provides early access to new features and updates.
+  - visual-studio-code@insiders # Visual Studio Code Insiders is a preview version of Visual Studio Code that provides early access to new features and updates.
 homebrew_cask_apps_general:
   - bettertouchtool  # Customizable touchpad and keyboard shortcuts
   - cleanmymac  # System cleaner and performance optimizer
