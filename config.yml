@@ -19,6 +19,7 @@ homebrew_packages_dotnet:
 homebrew_packages_general:
   - act  # GitHub Actions workflow runner
   # - emacs  # Extensible, customizable, free/libre text editor
+  - antigen  # Plugin manager for zsh
   - cask  # Homebrew extension for installing macOS applications
   - clip  # Command-line interface to the macOS clipboard
   - datamash  # Command-line tool for data manipulation
@@ -172,12 +173,13 @@ dotfiles_repo: "https://<PAT>@github.com/bobthearsonist/.dotfiles.git"
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Repositories/.dotfiles
 dotfiles_files:
-  - .zshrc
+  - .antigenrc
   - .gitconfig
   - .gitconfig-ukg
   - .gitconfig-bobthearsonist
   - .gitignore_global
   - .rubocop.yml
+  - .zshrc
 
 # TODO ahndle later, not needed when using timemachine backups
 configure_dock: false
