@@ -1,16 +1,13 @@
 mas_installed_apps:
   - { 'id': '1489591003', 'name': 'Email' }
-  # - { 'id': '449830122', 'name': 'Hyperdock' }
+  - { 'id': '449830122', 'name': 'Hyperdock' }
   - { 'id': '1179623856', 'name': 'Pastebot' }
   - { 'id': '497799835', 'name': 'Xcode' }
+  - { 'id': '1452453066', 'name': 'Hidden Bar' }
 
 homebrew_packages_dotnet:
   # caused issues with install for some reason
   - dotnet-sdk
-  - dotnet-sdk3-1-300
-  - dotnet-sdk3-1-400
-  - dotnet-sdk5-0-400
-  - dotnet-sdk6-0-400
   # issues with accepting license terms
   # - { name: microsoft/mssql-release/msodbcsql18, install_options: }
   # - microsoft/mssql-release/mssql-tools
@@ -30,14 +27,62 @@ homebrew_packages_general:
   - gauge  # Test automation framework
   - gh  # GitHub command-line interface
   - gist  # Command-line utility for working with GitHub Gists
+  - git
+  - git-lfs
+  - jq
+  - kcat
+  - kubernetes-cli
+  - miller
+  - minikube
+  - mono
+  - mysql
+  - mkcert
+  - nuget
+  - openapi-generator
+  - pandoc
   - swagger-codegen  # Code generator for OpenAPI/Swagger definitions
   - tcptraceroute  # Traceroute implementation using TCP packets useful for debugging ec2 isntances without openening ports
   - telnet  # Telnet client
+  - watch
+  - wget
+  - yq
+  - zsh
+  - zsh-completions
+
+homebrew_taps_kafka:
+  - confluentinc/ccloud
+  - confluentinc/confluent-hub-client
+
+homebrew_packages_kafka:
+  - kafka
+  - librdkafka
+  - zookeeper
+  - deviceinsight/packages/kafkactl
+
+homebrew_packages_work:
+  - jfrog-cli
+  - jmeter
+  - libffi
+  - libfido2
+  - pinentry-mac
+  - rabbitmq
+  - redis
+  - vault
+  - ykmon
+  - ykpers
+  - yubico-piv-tool
 
 homebrew_packages_js:
+  - angular-cli
   - node
   - nvm
-  - angular-cli
+  - yarn
+
+homebrew_cask_apps_jvm:
+  - temurin
+  - temurin@8
+  - temurin@11
+  - temurin@17
 
 homebrew_packages_jvm:
   - jenv
@@ -54,10 +99,11 @@ homebrew_packages_python:
   - python@3.11
 
 homebrew_packages_ruby:
-  # rbenv is used to install the versions
   - rbenv
   - rbenv-gemset
   - ruby-build
+  # - ruby@2.7
+  # - ruby@3.0
 
 homebrew_packages_personal_only:
   - homeassistant-cli
@@ -91,7 +137,8 @@ homebrew_taps:
     homebrew_taps_brew +
     homebrew_taps_development +
     homebrew_taps_dotnet +
-    homebrew_taps_jvm
+    homebrew_taps_jvm +
+    homebrew_taps_kafka
   }}"
 
 homebrew_cask_appdir: /Applications
@@ -101,25 +148,27 @@ homebrew_cask_apps_development:
   - devtoys # DevUtils is a collection of utilities for developers, including tools for generating random data, encoding/decoding, and more.
   - devutils # DevUtils is a collection of utilities for developers, including tools for generating random data, encoding/decoding, and more.
   - docker
+  - fork
   - github # GitHub Desktop is a client application that allows you to manage your GitHub repositories and perform Git operations.
   - Insomnia # Insomnia is a cross-platform REST client that allows you to test and debug RESTful APIs.
   - IntelliJ-IDEA # IntelliJ IDEA is a Java IDE that provides tools for developing Java, Kotlin, Groovy, and Scala applications.
   - JetBrains-Toolbox # JetBrains Toolbox is a collection of JetBrains IDEs and tools for developers.
   - Kaleidoscope # Kaleidoscope is a file comparison and merge tool that allows you to compare text, images, and folders.
+  # - kitematic # Kitematic is a graphical user interface for Docker that allows you to manage containers and images.
   - mysql-shell # MySQL Shell is a command-line client for MySQL that provides scripting, query, and administration capabilities.
+  - openlens # OpenLens is a Kubernetes IDE that provides a visual interface for managing and monitoring Kubernetes clusters.
+  - postman # Postman is a collaboration platform for API development that allows you to design, test, and document APIs.
   - powershell # PowerShell is a cross-platform scripting language and automation framework developed by Microsoft.
-  - soapui # SoapUI is an API testing tool that allows you to create, execute, and automate functional, security, and load tests.
+  # - soapui # fails to install
   - staruml # StarUML is a UML modeling tool that allows you to create, edit, and manage UML diagrams.
   - visual-studio-code # Visual Studio Code is a code editor that provides support for various programming languages and extensions.
   - visual-studio-code@insiders # Visual Studio Code Insiders is a preview version of Visual Studio Code that provides early access to new features and updates.
+
 homebrew_cask_apps_general:
   - bettertouchtool  # Customizable touchpad and keyboard shortcuts
-  - cleanmymac  # System cleaner and performance optimizer
-  - disk-inventory-x # Disk Inventory X is a disk usage utility for Mac OS X that helps you visualize disk space usage and identify large files and folders.
   - docker # Docker is a platform for developing, shipping, and running applications in containers.
   - dockstation # DockStation is a developer-centric application for managing projects based on Docker.
   - drawio # Draw.io is a free online diagram software for making flowcharts, process diagrams, org charts, UML, ER and network diagrams.
-  - fantastical
   - firefox
   # - font-fira-code # Monospaced font with programming ligatures
   - google-chrome
@@ -128,6 +177,7 @@ homebrew_cask_apps_general:
   - microsoft-edge
   - microsoft-teams
   - microsoft-auto-update
+  - microsoft-remote-desktop
   - messenger
   - notion
   - spotify
@@ -135,23 +185,40 @@ homebrew_cask_apps_general:
 
 homebrew_cask_app_personal_only:
   - adium  # Instant messaging client for Mac
+  - cleanmymac  # System cleaner and performance optimizer
   - discord
   - home-assistant
   - openra # OpenRA is an open-source implementation of the Red Alert game engine, allowing you to play classic Command & Conquer games on modern systems.
   - openscad # OpenSCAD is a free software for creating solid 3D CAD models, using a simple scripting language.
+  - qmk-toolbox # QMK Toolbox is a graphical user interface for flashing firmware to custom keyboards.
+  - rar # RAR is a file archiver that allows you to compress and decompress files in the RAR format.
   - transmission
 
+homebrew_cask_app_work:
+  - pallotron-yubiswitch
+  - vmware-horizon-client
+  - yubico-yubikey-manager
+
 # handled with dotnet-sdk-versions tap
-homebrew_cask_apps_dotnet: []
+homebrew_cask_apps_dotnet: [
   # - dotnet-sdk
   # - dotnet-sdk3-1-300
   # - dotnet-sdk3-1-400
   # - dotnet-sdk5-0-400
   # - dotnet-sdk6-0-400
+]
 
-homebrew_cask_apps_jvm: []
+homebrew_cask_apps_jvm: [
   # - adoptopenjdk11 # broken
   # - adoptopenjdk/openjdk/adoptopenjdk8 # broken
+  # - corretto@11
+  # - corretto@14
+  # - temurin@22
+  # - temurin@8
+  # - temurin@11
+  # - temurin@17
+  # - zulu@14
+]
 
 homebrew_cask_apps:
   "{{
@@ -171,7 +238,7 @@ configure_dotfiles: true
 dotfiles_repo_version: main
 dotfiles_repo: "https://<PAT>@github.com/bobthearsonist/.dotfiles.git"
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Repositories/.dotfiles
+dotfiles_repo_local_destination: ~/Repositories/bobthearsonist/.dotfiles
 dotfiles_files:
   - .antigenrc
   - .gitconfig

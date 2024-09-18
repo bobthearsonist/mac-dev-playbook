@@ -1,0 +1,13 @@
+- name: Ensure jenv is installed
+  homebrew:
+    name: jenv
+    state: present
+  tags: ['java']
+
+- name: Add Java versions to jenv
+  command:
+    cmd: jenv add /Library/Java/JavaVirtualMachines/{{ item }}/Contents/Home
+  loop:
+    - amazon-corretto-11.jdk
+    - zulu-17.jdk
+  tags: ['java']

@@ -1,14 +1,24 @@
-- name: Install dotnet-sdk-versions with Homebrew
-  homebrew:
-    name: dotnet-sdk-versions
-    state: latest
+- name: Tap the isen-ng/dotnet-sdk-versions repository
+  homebrew_tap:
+    name: isen-ng/dotnet-sdk-versions
 
-- name: Setup dotnet-sdk-versions
-  command:
-    cmd: dotnet sdk install {{ item }}
+- name: Install specific dotnet-sdk versions with Homebrew
+  expect:
+    command: "brew install --cask {{ item }}"
+    responses:
+      'Confirm Operation: Use of this Sudo Command is audited. Are you sure you wish to proceed\? Yes/No:': 'Yes'
   loop:
-    - 3.1.300
-    - 3.1.400
-    - 5.0.400
-    - 6.0.400
-    - latest
+    - dotnet-sdk3-1-300
+    - dotnet-sdk3-1-400
+    - dotnet-sdk5-0-400
+    - dotnet-sdk6-0-400
+    - dotnet-sdk8-0-400
+#    - dotnet-sdk9-preview
+
+- name: Verify installed dotnet SDKs
+  command: dotnet --list-sdks
+  register: dotnet_sdks
+
+- name: Display installed dotnet SDKs
+  debug:
+    msg: "{{ dotnet_sdks.stdout_lines }}"

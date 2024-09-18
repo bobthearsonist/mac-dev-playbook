@@ -44,9 +44,9 @@
             loop_var: outer_item
           with_fileglob: "{{ post_provision_tasks | default(omit) }}"
 
-    - name: Install msft brew packages with license acceptance
-      include_tasks: tasks/mssql-tools.yml
-      tags: ['mssql-tools']
+#    - name: Install msft brew packages with license acceptance
+#      include_tasks: tasks/mssql-tools.yml
+#      tags: ['mssql-tools']
 
     - name: Setup symlinks
       include_tasks: tasks/symlinks.yml
@@ -71,3 +71,7 @@
     - name: Setup nodejs
       include_tasks: tasks/nodejs.yml
       tags: ['nodejs']
+
+    - name: Setup Go
+      include_tasks: tasks/go.yml
+      tags: ['go']
